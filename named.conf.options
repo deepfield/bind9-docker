@@ -29,6 +29,6 @@ options {
         /* Path to ISC DLV key */
         bindkeys-file "/etc/named.iscdlv.key";
 	dnstap {auth; resolver query;};
-	dnstap-output file "/var/tmp/log.dnstap";
+	dnstap-output file "/var/tmp/dnstap.log";
 };
 
