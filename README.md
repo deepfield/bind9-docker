@@ -13,6 +13,7 @@ DNSTap is logged in file `out/dnstap.log`.
 
 # make some DNS queries
 `dig @127.0.0.1 -p 30053 google.com A`
+
 `dig @127.0.0.1 -p 30053 bbc.co.uk A`
 
 # read DNStap log
