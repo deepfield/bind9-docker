@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x 
 
-/usr/sbin/named -g -c /etc/bind/named.conf  &
+mkdir out
+docker run --rm --name=bind9 -p 30053:53/udp -p 30053:53/tcp -p 127.0.0.1:953:953/tcp -v $(pwd)/out:/var/tmp bind9
 
-fstrm_capture -t protobuf:dnstap.Dnstap -u /var/run/bind/dnstap.sock -w /var/tmp/log.dnstap
+#dig @127.0.0.1 -p 30053 example.com
