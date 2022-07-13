@@ -32,11 +32,12 @@ RUN mkdir -p /run/named && chown bind:bind /run/named && chmod 755 /run/named
 
 COPY named.conf.options /etc/bind/named.conf.options
 RUN chmod o+rw /etc/bind/named.conf.options
-#COPY run.sh /run.sh
-#RUN chmod +x /run.sh
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 
-VOLUME ["/etc/bind", "/var/cache/bind", "/var/lib/bind", "/var/log"]
+VOLUME ["/etc/bind", "/var/cache/bind", "/var/lib/bind", "/var/log", "var/tmp"]
 
 EXPOSE 53/udp 53/tcp 953/tcp
 
-CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
+#CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
+CMD "/run.sh"

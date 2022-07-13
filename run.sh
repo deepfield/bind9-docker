@@ -1,7 +1,9 @@
 #!/bin/bash
 set -x 
 
-mkdir out
-docker run --rm --name=bind9 -p 30053:53/udp -p 30053:53/tcp -p 127.0.0.1:953:953/tcp -v $(pwd)/out:/var/tmp bind9
+touch /var/tmp/dnstap.log
+chown bind /var/tmp/dnstap.log
+
+/usr/sbin/named -g -c /etc/bind/named.conf -u bind
 
 #dig @127.0.0.1 -p 30053 example.com
