@@ -21,6 +21,13 @@ DNSTap is logged in file `out/dnstap.log`.
 
 `dnstap -r out/dnstap.log`
 
+# kill running container
+`ps -a`
+
+(find id of container)
+
+`docker stop {id}`
+
 ## sample output
 ```
 19:00:22.573006 RQ 103.49.80.1 UDP 46b "co.uk." IN DNSKEY
