@@ -43,3 +43,13 @@ DNSTap is logged in file `out/dnstap.log`.
 19:00:23.041009 RQ 2620:4d:4000:6259:7:9:0:1 UDP 50b "bbc.co.uk." IN A
 19:00:23.093009 RQ 192.26.92.30 TCP 53b "dns0.bbc.com." IN A
 ```
+
+
+# prepare AWS ubuntu
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+#log out and back in
+```
+
